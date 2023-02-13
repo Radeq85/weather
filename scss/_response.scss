@@ -1,0 +1,26 @@
+$breakpoints:('desktop': 1200px,
+);
+
+@mixin mq($breakpoint) {
+
+
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+;
+
+@mixin portrait {
+    @media (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}

@@ -1,0 +1,210 @@
+///////////  thunder  //////////////
+
+@keyframes bottomThunderLeft {
+    from {
+        top: 0%;
+    }
+
+    to {
+        top: 25%;
+    }
+}
+
+
+
+@keyframes ThunderOpacity {
+    from {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 0.5;
+    }
+
+    80% {
+        opacity: 0.9;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes thunderCloud {
+    from {
+        background-color: #aaabac;
+    }
+
+
+
+    50% {
+        background: rgb(112, 112, 112);
+    }
+
+    to {
+        background-color: rgb(112, 112, 112);
+        // background-color: #aaabac;
+    }
+}
+
+///////////////// sun /////////////////
+
+@keyframes sunShine {
+    from {
+        box-shadow: 0 0 20px 0 #F2A413;
+    }
+
+    to {
+        box-shadow: 0 0 50px 20px #F2A413;
+    }
+}
+
+///////////////// rain /////////////////
+
+@keyframes rainDrop {
+    from {
+        top: 100%;
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    to {
+        top: 200%;
+        opacity: 0;
+
+    }
+}
+
+///////////////// snow /////////////////
+
+@keyframes snowDrop2 {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+
+    75% {
+
+        opacity: 0.7;
+    }
+
+
+    to {
+
+        opacity: 0;
+        top: 40%;
+    }
+}
+
+@keyframes snowDrop {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+
+    75% {
+
+        opacity: 0.7;
+    }
+
+
+    to {
+
+        opacity: 0;
+        top: 30%;
+    }
+}
+
+///////////////// cloudScattered /////////////////
+
+@keyframes cloud {
+    from {
+        opacity: 0.9;
+        left: 10%;
+    }
+
+    to {
+        opacity: 0.7;
+        left: -20%;
+    }
+}
+
+///////////////// cloudMedium /////////////////
+
+@keyframes cloudreverse {
+    from {
+        opacity: 1;
+        left: -35%;
+    }
+
+    to {
+        opacity: 0.9;
+        left: 00%;
+    }
+}
+
+///////////////// cloudMedium /////////////////
+
+@keyframes cloudreverse2 {
+    from {
+
+        left: -30%;
+    }
+
+    to {
+
+        left: 0%;
+    }
+}
+
+@keyframes cloudreverse3 {
+    from {
+
+        left: -8%;
+    }
+
+    to {
+
+        left: 12%;
+    }
+}
+
+///////// fog ////////
+
+
+@keyframes mistLeft {
+    from {
+        left: -5%
+    }
+
+    50% {
+        left: 10%
+    }
+
+
+    to {
+        left: -5%
+    }
+}
+
+@keyframes mistRight {
+    from {
+        left: 10%
+    }
+
+    50% {
+        left: -5%
+    }
+
+
+    to {
+        left: 10%
+    }
+}

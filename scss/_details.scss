@@ -1,0 +1,168 @@
+////styling the part responsible for the 5-day weather////
+
+.details {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: wrap;
+
+    @include landscape {
+        width: 55%;
+        height: 100%;
+        overflow-y: scroll;
+        margin-top: 1%;
+        flex-direction: row;
+    }
+
+    @include mq(desktop) {
+        width: 45%;
+    }
+
+}
+
+.detailSection {
+    display: flex;
+    width: 100%;
+    height: 96%;
+    justify-content: center;
+    align-items: baseline;
+    // margin: 1%;
+
+
+
+    @include landscape {
+        height: 48%;
+
+    }
+
+
+    .detailContainer {
+        position: relative;
+        width: 33%;
+        height: 99%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 2%;
+        font-size: 0.8rem;
+        margin: 1%;
+        z-index: 2;
+
+        &::after {
+            content: " ";
+            position: absolute;
+            width: 100%;
+            height: 99%;
+            border-radius: 5%;
+            background-color: rgb(255, 255, 255);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+
+        @include landscape {
+            justify-content: space-around;
+            gap: 0;
+            font-size: 0.6rem;
+        }
+
+        @include mq(desktop) {
+            font-size: 1.1rem;
+            // border-bottom: 1px solid white;
+            justify-content: space-around;
+
+        }
+
+
+
+        .timeFive {
+
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-align: center;
+
+
+            @include landscape {
+                font-size: 0.8rem;
+                width: 96%;
+                padding-bottom: 1%;
+
+
+
+            }
+
+            @include mq(desktop) {
+                font-size: 1.3rem;
+                padding: 1%;
+
+            }
+
+        }
+
+
+        .date {
+            text-align: center;
+            margin-bottom: 10%;
+        }
+
+        .icon {
+            text-align: center;
+
+            img {
+                width: 60%;
+
+
+
+                @include landscape {
+                    width: 40%;
+
+                }
+
+                @include mq(desktop) {
+                    width: 100%;
+                }
+            }
+
+        }
+
+        .name {
+
+            max-height: 15%;
+            margin-bottom: 5%;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-align: center;
+
+
+            @include mq(desktop) {
+                font-size: 1.4rem;
+            }
+        }
+
+        .pressure {
+            margin-bottom: 5%;
+        }
+    }
+}
+
+.details>:last-child {
+    justify-content: flex-start;
+}
+
+.btn {
+    display: flex;
+    gap: 30%;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        @include btn;
+    }
+
+}

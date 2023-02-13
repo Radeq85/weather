@@ -1,0 +1,456 @@
+////styling the part responsible for the main window and atmospheric phenomena////
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+    height: 99.8vh;
+    background: #787CBF;
+    overflow: hidden;
+
+    @include landscape {
+        flex-direction: row;
+    }
+}
+
+
+.main {
+    width: 100%;
+    height: 60%;
+    border-bottom: 1px solid white;
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 5fr 1fr 0.5fr;
+    grid-template-areas:
+        "date date phenomenon"
+        "location location phenomenon"
+        "graphic graphic phenomenon"
+        "mainTemp mainTemp phenomenon"
+        "search search phenomenon";
+    position: relative;
+
+    @include landscape {
+        width: 45%;
+        height: 100%;
+        grid-template-columns: 3fr 3fr 1fr;
+        grid-template-rows: 0.5fr 0.5fr 5fr 1fr 0.5fr;
+        grid-template-areas:
+            "date date phenomenon"
+            "location location phenomenon"
+            "graphic graphic phenomenon"
+            "mainTemp mainTemp phenomenon"
+            "search search phenomenon";
+        position: relative;
+        border-right: 1px solid white;
+    }
+
+    @include mq(desktop) {
+        width: 54%;
+    }
+
+    .time {
+        margin: 0% 5%;
+        grid-area: date;
+        align-self: center;
+    }
+
+
+    .location {
+        grid-area: location;
+        align-self: center;
+        margin: 0% 5%;
+
+    }
+
+    .search {
+        grid-area: search;
+        align-self: center;
+        margin: 0% 5%;
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .searchCity {
+        width: 50%;
+        height: 50%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid white;
+        color: white;
+
+
+        &:active {
+            outline: none;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+
+
+    .searchIcon {
+
+        margin-left: 2%;
+    }
+
+
+    .city {
+        grid-area: location;
+        align-self: center;
+        justify-self: center;
+    }
+
+
+    .phenomenon {
+        grid-area: phenomenon;
+        margin: 50% 20%;
+        align-self: center;
+
+        span {
+            writing-mode: vertical-rl;
+
+        }
+
+    }
+
+    .phenomenonGraphic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: graphic;
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+
+        .CityTekst {
+            position: relative;
+
+        }
+
+        //////////// thunder ////////////
+
+        .cloudThunder {
+            @include cloud;
+            animation: thunderCloud .5s .5s infinite alternate;
+            z-index: 2;
+        }
+
+        .thunderContainer {
+            animation: bottomThunderLeft 2s infinite;
+            position: relative;
+
+            z-index: 1;
+
+            .thunder {
+                @include thunder;
+
+            }
+        }
+
+        //////////// sun ////////////
+
+        .sun {
+            @include sun;
+            animation: sunShine 2s infinite alternate;
+
+        }
+
+        //////////// moon ////////////
+
+        .moon {
+            position: relative;
+            top: -10%;
+            left: -10%;
+            @include moon;
+        }
+
+        //////////// rain ////////////
+
+        .cloudRain {
+            @include cloud;
+            z-index: 3;
+        }
+
+        .containerRain {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10%;
+
+
+
+            .stream1 {
+                position: relative;
+                top: 100%;
+                left: -50%;
+                @include stream;
+                animation: rainDrop .8s infinite;
+            }
+
+            .stream2 {
+                position: relative;
+                top: 100%;
+                left: 0%;
+                @include stream;
+                animation: rainDrop .8s .5s infinite;
+            }
+
+            .stream3 {
+                position: relative;
+                top: 100%;
+                left: 50%;
+                @include stream;
+                animation: rainDrop .8s 1s infinite;
+            }
+
+        }
+
+        //////////// snow ////////////
+
+        .cloudSnow {
+            @include cloud;
+            z-index: 3;
+            background-color: #9e9e9e;
+        }
+
+
+        .snow {
+            width: 95%;
+            height: 100%;
+            position: absolute;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            gap: 6%;
+
+            .snow1 {
+                @include snow;
+                animation: snowDrop 2.5s infinite;
+
+            }
+
+            .snow2 {
+                @include snow;
+                animation: snowDrop2 2.5s 2s infinite;
+            }
+
+            .snow3 {
+                @include snow;
+                animation: snowDrop 2.5s 3s infinite;
+            }
+
+            .snow4 {
+                @include snow;
+                animation: snowDrop2 2.5s 3s infinite;
+            }
+        }
+
+        //////////// cloudScattered ////////////
+
+        .sunCloudScattered {
+            @include sun;
+            width: 150px;
+            height: 150px;
+
+            animation: sunShine 2s infinite alternate;
+            position: relative;
+        }
+
+        .moonCloudScattered {
+            @include moon;
+            width: 150px;
+            height: 150px;
+            position: relative;
+            background: #589A8D;
+        }
+
+        .cloudContainer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 15%;
+            animation: cloud 3s infinite linear alternate;
+            z-index: 2;
+
+
+            .cloudScattered {
+                @include cloud;
+                scale: 0.7;
+                background-color: #cacaca;
+                // animation: cloud 2.5s infinite linear alternate;
+            }
+        }
+
+        //////////// cloudMedium ////////////
+
+        .sunCloudMedium {
+            @include sun;
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: sunShine 2s infinite alternate;
+        }
+
+        .moonCloudMedium {
+            @include moon;
+            width: 150px;
+            height: 150px;
+            position: relative;
+            background: #589A8D;
+        }
+
+        .cloudMediumContainer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 15%;
+            animation: cloud 3s infinite linear alternate;
+            z-index: 2;
+
+            .cloudMedium {
+                @include cloud;
+                background-color: #cacaca;
+                scale: 0.7;
+            }
+        }
+
+        .cloudMediumContainer2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: -15%;
+            animation: cloudreverse 4s infinite linear alternate;
+            z-index: 1;
+
+            .cloudMedium {
+                @include cloud;
+                scale: 0.5;
+                background-color: #e9e9e9;
+            }
+        }
+
+        //////////// cloudheavy ////////////
+
+        .cloudHeavyContainer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: cloud 3s infinite linear alternate;
+            z-index: 3;
+
+            .cloudHeavy {
+                @include cloud;
+                background-color: #bdbdbd;
+                scale: 0.7;
+            }
+        }
+
+        .cloudHeavyContainer2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: -10%;
+            animation: cloudreverse 4s infinite linear alternate;
+            z-index: 2;
+
+            .cloudHeavy {
+                @include cloud;
+                scale: 0.5;
+                background-color: #b4b4b4;
+
+            }
+        }
+
+        .cloudHeavyContainer3 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 20%;
+            animation: cloudreverse2 2s infinite linear alternate;
+            z-index: 1;
+
+            .cloudHeavy {
+                @include cloud;
+                scale: 0.5;
+                background-color: #5c5c5c
+            }
+        }
+
+        .cloudHeavyContainer4 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 15%;
+            animation: cloudreverse3 3s infinite linear alternate;
+            z-index: 0;
+
+            .cloudHeavy {
+                @include cloud;
+                scale: 1;
+                background-color: #757575
+            }
+        }
+
+        ///////// fog ////////
+        .cloudMist {
+
+            @include cloud;
+            z-index: 3;
+            scale: 0.9;
+        }
+
+        .containerMist {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-15%, 25%);
+            gap: 3%;
+
+            @include landscape {
+                transform: translate(-15%, 15%);
+            }
+
+            .mist1 {
+                @include mist;
+                position: relative;
+                animation: mistLeft 5s linear infinite alternate both;
+            }
+
+            .mist2 {
+                @include mist;
+                position: relative;
+                animation: mistRight 5s linear infinite alternate both;
+            }
+
+            .mist3 {
+                @include mist;
+                position: relative;
+                animation: mistLeft 5s linear infinite alternate both;
+            }
+        }
+    }
+
+    .mainTemp {
+        grid-area: mainTemp;
+        align-self: end;
+        margin-bottom: 5%;
+        margin-left: 4%;
+    }
+}

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+$FontFamily: 'Lato',
+sans-serif;
+$FontSizeBase: 16px;
+
+html {
+    font-family: $FontFamily;
+    font-size: $FontSizeBase;
+    color: white;
+}
+
+.time {
+    font-size: 1.2rem;
+
+    @include mq(desktop) {
+        font-size: 1.6rem;
+    }
+}
+
+.location {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+
+    @include mq(desktop) {
+        font-weight: 700;
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+}
+
+.phenomenon {
+    font-weight: 900;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+
+    @include landscape {
+        font-size: 1.8rem;
+
+        @include mq(desktop) {
+            font-size: 3.2rem;
+            letter-spacing: 1px;
+        }
+
+    }
+
+}
+
+.mainTemp {
+    font-weight: 900;
+    font-size: 3rem;
+
+    @include mq(desktop) {
+        font-size: 4rem;
+        letter-spacing: 1px;
+    }
+}
+
+
+
+.searchCity {
+    font-size: 1.2rem;
+
+    @include mq(desktop) {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+}
+
+.search:focus {
+    color: white;
+}
+
+.searchIcon {
+    @include mq(desktop) {
+        font-size: 2rem;
+    }
+
+}
+
+.CityTekst {
+    font-size: 1.3rem;
+
+    @include mq(desktop) {
+        font-size: 2.8rem;
+    }
+}
